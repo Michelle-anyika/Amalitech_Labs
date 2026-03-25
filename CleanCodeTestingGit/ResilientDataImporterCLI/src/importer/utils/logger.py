@@ -1,0 +1,28 @@
+import logging
+
+
+def setup_logger(name: str = "importer") -> logging.Logger:
+    """
+    Configures and returns a logger instance.
+
+    Args:
+        name (str): Name of the logger.
+
+    Returns:
+        logging.Logger: Configured logger instance.
+    """
+    logger = logging.getLogger(name)
+
+    if not logger.handlers:
+        logger.setLevel(logging.INFO)
+
+        formatter = logging.Formatter(
+            "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
+        )
+
+        console_handler = logging.StreamHandler()
+        console_handler.setFormatter(formatter)
+
+        logger.addHandler(console_handler)
+
+    return logger
