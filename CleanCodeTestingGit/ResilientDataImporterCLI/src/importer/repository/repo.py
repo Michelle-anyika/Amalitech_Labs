@@ -1,9 +1,9 @@
 import json
 from typing import List
 
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.models.user import User
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.exceptions.data_exceptions import DuplicateUserError
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.utils.file_manager import FileManager
+from ..models.user import User
+from ..exceptions.data_exceptions import DuplicateUserError
+from ..utils.file_manager import FileManager
 
 
 class UserRepository:

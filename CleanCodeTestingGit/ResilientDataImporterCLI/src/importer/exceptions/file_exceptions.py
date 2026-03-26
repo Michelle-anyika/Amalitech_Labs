@@ -1,4 +1,4 @@
-from importer.exceptions.base import ImporterError
+from ..exceptions.base import ImporterError
 
 
 class FileFormatError(ImporterError):

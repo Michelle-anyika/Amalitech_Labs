@@ -1,4 +1,4 @@
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.repository.user_repository import UserRepository
+from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.repository.repo import UserRepository
 from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.services.importer_service import ImporterService
 
 

@@ -1,10 +1,10 @@
 from typing import List
 
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.models.user import User
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.parser.csv_parser import parse_csv
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.services.validation_service import ValidationService
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.repository.user_repository import UserRepository
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.utils.logger import setup_logger
+from ..models.user import User
+from ..parser.csv_parser import parse_csv
+from ..services.validation_service import ValidationService
+from ..repository.repo import UserRepository
+from ..utils.logger import setup_logger
 
 
 class ImporterService:

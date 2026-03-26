@@ -1,8 +1,8 @@
 import re
 from typing import List
 
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.models.user import User
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.exceptions.data_exceptions import DataValidationError
+from ..models.user import User
+from ..exceptions.data_exceptions import DataValidationError
 
 
 class ValidationService:

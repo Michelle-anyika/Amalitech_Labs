@@ -1,6 +1,6 @@
 import pytest
 from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.models.user import User
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.repository.user_repository import UserRepository
+from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.repository.repo import UserRepository
 from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.exceptions.data_exceptions import DuplicateUserError
 
 
