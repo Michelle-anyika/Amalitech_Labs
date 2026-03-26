@@ -1,8 +1,13 @@
 class WeatherService:
     def get_forecast(self, city: str) -> dict:
-        if city == "Kigali":
+        data = {
+            "Kigali": {"temperature": 25, "condition": "Sunny"},
+            "Nairobi": {"temperature": 22, "condition": "Cloudy"},
+            "Lagos": {"temperature": 30, "condition": "Humid"},
+        }
+
+        if city in data:
             return {
-                "city": "Kigali",
-                "temperature": 25,
-                "condition": "Sunny",
+                "city": city,
+                **data[city],
             }
