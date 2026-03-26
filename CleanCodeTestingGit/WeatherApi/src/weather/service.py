@@ -7,6 +7,6 @@ class WeatherService:
         }
 
         if city not in forecasts:
-            return None  # temporary (I’ll fix later)
+            raise Exception("City not found")
 
         return {"city": city, **forecasts[city]}
