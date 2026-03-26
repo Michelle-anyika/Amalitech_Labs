@@ -1,5 +1,5 @@
 class WeatherService:
-    def get_forecast(self, city: str):
+    def get_forecast(self, city: str) -> dict:
         if city == "Kigali":
             return {
                 "city": "Kigali",
