@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
-from  .exceptions import CityNotFoundError
+from .exceptions import CityNotFoundError
+
+
 class WeatherProvider(ABC):
 
     @abstractmethod
