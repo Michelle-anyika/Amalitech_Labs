@@ -2,8 +2,8 @@
 Service for managing students.
 """
 
-from PythonBasics.Lab1.app.models.undergraduate import Undergraduate
-from PythonBasics.Lab1.app.models.graduate import Graduate
+from Lab1 import Undergraduate
+from PythonBasics.Lab1 import Graduate
 
 students = {}  # {student_id: Student instance}
 

@@ -1,7 +1,7 @@
 import unittest
-from PythonBasics.Lab1.app.models.student import Student
-from PythonBasics.Lab1.app.models.undergraduate import Undergraduate
-from PythonBasics.Lab1.app.models.graduate import Graduate
+from PythonBasics.Lab1 import Student
+from PythonBasics.Lab1 import Undergraduate
+from PythonBasics.Lab1 import Graduate
 
 class TestStudents(unittest.TestCase):
 
