@@ -2,7 +2,7 @@
 Graduate student class.
 """
 
-from PythonBasics.Lab1.app.models.student import Student
+from PythonBasics.Lab1 import Student
 
 class Graduate(Student):
     """Graduate student class."""

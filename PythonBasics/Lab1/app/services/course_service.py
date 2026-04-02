@@ -2,7 +2,7 @@
 Service for managing courses.
 """
 
-from PythonBasics.Lab1.app.models.course import Course
+from PythonBasics.Lab1.import Course
 
 courses = {}  # {course_id: Course instance}
 
