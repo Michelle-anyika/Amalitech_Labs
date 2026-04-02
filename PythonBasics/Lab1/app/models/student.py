@@ -4,13 +4,16 @@ Demonstrates encapsulation, properties, magic methods, inheritance,
 and email validation.
 """
 import re
+from datetime import date
+
 
 class Student:
     """Base Student class with email validation."""
 
-    def __init__(self, student_id: str, name: str, email: str):
+    def __init__(self, student_id: str, name: str, email: str, dob: date):
         self._student_id = student_id
         self._name = name
+        self.dob = dob
         self.email = email  # will call the setter for validation
         self._enrolled_courses = []
 

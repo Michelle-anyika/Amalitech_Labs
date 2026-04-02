@@ -1,0 +1,21 @@
+# Markdown files
+*.md
+!README.md
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment
+.venv/
+env/
+venv/
+ENV/
+
+# OS generated
+.DS_Store
+Thumbs.db

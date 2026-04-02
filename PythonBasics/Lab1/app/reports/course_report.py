@@ -3,7 +3,7 @@ Course report implementation using logging.
 """
 
 import logging
-from PythonBasics.Lab1.app.reports.report_abc import Report
+from PythonBasics.Lab1 import Report
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 
