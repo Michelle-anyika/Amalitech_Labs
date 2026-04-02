@@ -1,0 +1,39 @@
+{
+    "total_students": 4,
+    "overall_average": 83.57142857142857,
+    "grade_distribution": {
+        "90.0": 2,
+        "95.0": 1,
+        "80.0": 1,
+        "70.0": 1,
+        "60.0": 1,
+        "100.0": 1
+    },
+    "top_performers": [
+        {
+            "name": "Dave",
+            "average": 95.0,
+            "percentile": 100.0
+        },
+        {
+            "name": "Alice",
+            "average": 92.5,
+            "percentile": 66.67
+        },
+        {
+            "name": "Bob",
+            "average": 80.0,
+            "percentile": 33.33
+        },
+        {
+            "name": "Charlie",
+            "average": 65.0,
+            "percentile": 0.0
+        }
+    ],
+    "major_groupings": {
+        "CS": 2,
+        "Math": 1,
+        "Physics": 1
+    }
+}

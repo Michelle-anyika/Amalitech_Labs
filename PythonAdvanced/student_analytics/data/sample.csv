@@ -1,0 +1,5 @@
+id,name,major,year,grades
+1,Alice,CS,2023,"90.0, 95.0"
+2,Bob,Math,2023,"80.0"
+3,Charlie,CS,2023,"70.0, 60.0"
+4,Dave,Physics,2023,"100.0, 90.0"
