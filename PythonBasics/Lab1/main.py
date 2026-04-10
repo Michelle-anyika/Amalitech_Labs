@@ -34,9 +34,11 @@ def menu():
                 if stype == "undergraduate":
                     year = int(input("Year: "))
                     add_student(sid, name, email, stype, year)
+                    print(f" {stype} student {name} is successfully added")
                 elif stype == "graduate":
                     research = input("Research Area: ").strip()
                     add_student(sid, name, email, stype, research)
+                    print(f" {stype} student {name} successfully added!!")
                 else:
                     print("Invalid student type")
             except ValueError:
@@ -46,6 +48,7 @@ def menu():
             cid = input("Course ID: ").strip()
             cname = input("Course Name: ").strip()
             add_course(cid, cname)
+            print(f"Course {cname} added successfully!!")
 
         elif choice == "3":
             sid = input("Student ID: ").strip()
