@@ -1,12 +1,12 @@
 import csv
 from typing import List, Dict
 
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.exceptions.file_exceptions import (
+from ..exceptions.file_exceptions import (
     FileNotFoundErrorCustom,
     FileFormatError,
     FileReadError,
 )
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.utils.file_manager import FileManager
+from ..utils.file_manager import FileManager
 
 
 def parse_csv(file_path: str) -> List[Dict[str, str]]:

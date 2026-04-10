@@ -1,4 +1,4 @@
-from CleanCodeTestingGit.ResilientDataImporterCLI.src.importer.exceptions.base import ImporterError
+from ..exceptions.base import ImporterError
 
 
 class DataValidationError(ImporterError):
