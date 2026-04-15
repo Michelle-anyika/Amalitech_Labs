@@ -147,7 +147,7 @@ class UserBehavior:
 
 @dataclass
 class TopProduct:
-    """Top selling product (from cache)"""
+    """Top_selling product (from cache)"""
     product_id: int
     product_name: str
     total_sales: int
