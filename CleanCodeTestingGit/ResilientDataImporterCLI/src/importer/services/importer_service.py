@@ -2,8 +2,8 @@ from typing import List
 
 from ..models.user import User
 from ..parser.csv_parser import parse_csv
-from ..services.validation_service import ValidationService
-from ..repository.repo import UserRepository
+from ..services.base_service import ValidationServiceInterface
+from ..repository.base_repository import UserRepositoryInterface
 from ..utils.logger import setup_logger
 
 
@@ -12,9 +12,13 @@ class ImporterService:
     Orchestrates the import process.
     """
 
-    def __init__(self, repository: UserRepository) -> None:
+    def __init__(
+        self,
+        repository: UserRepositoryInterface,
+        validator: ValidationServiceInterface,
+    ) -> None:
         self.repository = repository
-        self.validator = ValidationService()
+        self.validator = validator
         self.logger = setup_logger()
 
     def import_data(self, file_path: str) -> None:

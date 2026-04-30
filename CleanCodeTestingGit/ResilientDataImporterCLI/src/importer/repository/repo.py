@@ -6,7 +6,10 @@ from ..exceptions.data_exceptions import DuplicateUserError
 from ..utils.file_manager import FileManager
 
 
-class UserRepository:
+from .base_repository import UserRepositoryInterface
+
+
+class UserRepository(UserRepositoryInterface):
     """
     Handles storage and retrieval of users in a JSON file.
     """
