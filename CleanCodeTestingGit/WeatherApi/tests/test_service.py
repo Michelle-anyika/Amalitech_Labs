@@ -24,10 +24,10 @@ def test_mock_provider_valid_city():
 
     result = provider.fetch("kigali")
 
-    assert result.temperature == 25
+    assert result["temperature"] == 25
 
 
-def test_invalid_api_key(weather_service):
+def test_invalid_api_key():
     service = WeatherService(provider=MockWeatherProvider(), api_key="bad")
 
     with pytest.raises(InvalidAPIKeyError):
