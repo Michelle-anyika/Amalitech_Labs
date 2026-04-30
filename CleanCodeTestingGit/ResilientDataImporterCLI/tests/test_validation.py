@@ -27,3 +27,19 @@ def test_missing_fields():
 
     with pytest.raises(DataValidationError):
         service.validate(users)
+
+
+def test_empty_user_list():
+    service = ValidationService()
+    assert service.validate([]) == []
+
+
+def test_validation_fails_on_first_error():
+    service = ValidationService()
+    users = [
+        User("1", "John", "john@mail.com"),
+        User("2", "Jane", "invalid-email"),
+    ]
+
+    with pytest.raises(DataValidationError, match="Invalid email"):
+        service.validate(users)

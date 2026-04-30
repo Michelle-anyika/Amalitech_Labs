@@ -5,7 +5,10 @@ from ..models.user import User
 from ..exceptions.data_exceptions import DataValidationError
 
 
-class ValidationService:
+from .base_service import ValidationServiceInterface
+
+
+class ValidationService(ValidationServiceInterface):
     """
     Handles validation of user data.
     """

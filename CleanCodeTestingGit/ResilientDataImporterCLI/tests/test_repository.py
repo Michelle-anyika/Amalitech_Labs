@@ -25,3 +25,13 @@ def test_duplicate_user(temp_json_file):
     with pytest.raises(DuplicateUserError):
         repo.add_users([user])
 
+
+def test_corrupt_json_file(tmp_path):
+    file = tmp_path / "corrupt.json"
+    file.write_text("{invalid_json: true}")
+
+    repo = UserRepository(str(file))
+
+    with pytest.raises(Exception):
+        repo.load_users()
+

@@ -31,12 +31,19 @@ def parse_csv(file_path: str) -> List[Dict[str, str]]:
             if not reader.fieldnames:
                 raise FileFormatError("CSV file has no headers.")
 
-            data = [row for row in reader]
+            required_columns = {"user_id", "name", "email"}
+            if not required_columns.issubset(set(reader.fieldnames)):
+                missing = required_columns - set(reader.fieldnames)
+                raise FileFormatError(f"Missing required columns: {missing}")
 
+            data = [row for row in reader]
             return data
 
     except FileNotFoundError:
         raise FileNotFoundErrorCustom(f"File '{file_path}' not found.")
+
+    except FileFormatError:
+        raise
 
     except csv.Error as e:
         raise FileFormatError(f"CSV parsing error: {e}")
