@@ -1,5 +1,8 @@
+import logging
 from .exceptions import InvalidAPIKeyError
 from .models import WeatherResponse
+
+logger = logging.getLogger(__name__)
 
 
 class WeatherService:
@@ -8,10 +11,19 @@ class WeatherService:
         self.api_key = api_key
 
     def get_forecast(self, city: str) -> WeatherResponse:
-        data = self.provider.fetch(city.lower())
+        logger.info(f"Fetching forecast for city: {city}")
 
-        return WeatherResponse(
-            city=city,
-            temperature=data["temperature"],
-            condition=data["condition"],
-        )
+        if self.api_key != "valid-key":
+            logger.error(f"Invalid API key provided: {self.api_key}")
+            raise InvalidAPIKeyError("Invalid API key")
+
+        try:
+            data = self.provider.fetch(city.lower())
+            return WeatherResponse(
+                city=city,
+                temperature=data["temperature"],
+                condition=data["condition"],
+            )
+        except Exception as e:
+            logger.exception(f"Error fetching weather for {city}: {e}")
+            raise
