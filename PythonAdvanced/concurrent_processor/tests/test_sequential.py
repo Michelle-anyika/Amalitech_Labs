@@ -16,3 +16,6 @@ def test_run_sequential():
     urls = ["http://example.com/f1.jpg", "http://example.com/f2.jpg"]
     results = run_sequential(urls)
     assert len(results) == 2
+    assert results[0].filename == "f1.jpg"
+    assert results[0].result_value > 1000
+    assert results[0].execution_time > 0

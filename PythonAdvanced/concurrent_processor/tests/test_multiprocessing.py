@@ -13,3 +13,5 @@ def test_process_urls_multiprocessed():
     
     # ProcessPoolExecutor should effortlessly complete calculations scaling isolated CPUs
     assert len(results) == 3
+    assert all(r.result_value > 1000 for r in results)
+    assert all(r.execution_time > 0 for r in results)

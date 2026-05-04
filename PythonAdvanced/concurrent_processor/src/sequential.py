@@ -1,6 +1,7 @@
 import time
 import math
 from typing import List
+from .dataset import ProcessingResult
 
 def download_file(url: str) -> str:
     """Simulates an I/O Network bounding condition by aggressively sleeping."""
@@ -15,11 +16,18 @@ def process_file(filename: str) -> int:
         result += math.isqrt(i)
     return result
 
-def run_sequential(urls: List[str]) -> List[int]:
+def run_sequential(urls: List[str]) -> List[ProcessingResult]:
     """Generates standard baseline sequential executions running strictly one-by-one."""
     results = []
     for url in urls:
+        start_time = time.time()
         filename = download_file(url)
-        processed = process_file(filename)
-        results.append(processed)
+        processed_val = process_file(filename)
+        duration = time.time() - start_time
+        results.append(ProcessingResult(
+            url=url,
+            filename=filename,
+            result_value=processed_val,
+            execution_time=duration
+        ))
     return results

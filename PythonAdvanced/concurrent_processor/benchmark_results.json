@@ -1,0 +1,42 @@
+[
+    {
+        "strategy": "Sequential",
+        "total_benchmark_time": 6.4675,
+        "avg_item_time": 0.2587,
+        "median_item_time": 0.2484,
+        "stdev_item_time": 0.0323,
+        "value_ranges_counts": {
+            "600M-700M": 25
+        }
+    },
+    {
+        "strategy": "ThreadPool",
+        "total_benchmark_time": 3.8446,
+        "avg_item_time": 0.7253,
+        "median_item_time": 0.6185,
+        "stdev_item_time": 0.267,
+        "value_ranges_counts": {
+            "600M-700M": 25
+        }
+    },
+    {
+        "strategy": "ProcessPool",
+        "total_benchmark_time": 3.3009,
+        "avg_item_time": 0.3124,
+        "median_item_time": 0.3001,
+        "stdev_item_time": 0.0579,
+        "value_ranges_counts": {
+            "600M-700M": 25
+        }
+    },
+    {
+        "strategy": "Asyncio",
+        "total_benchmark_time": 7.3103,
+        "avg_item_time": 5.4776,
+        "median_item_time": 6.098,
+        "stdev_item_time": 1.6473,
+        "value_ranges_counts": {
+            "600M-700M": 25
+        }
+    }
+]

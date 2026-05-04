@@ -11,3 +11,5 @@ def test_asyncio_processor():
     # Resolving non-blocking asynchronous loops natively
     results = asyncio.run(process_urls_async(urls))
     assert len(results) == 2
+    assert results[0].result_value > 1000
+    assert results[0].execution_time > 0

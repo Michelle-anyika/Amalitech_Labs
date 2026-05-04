@@ -19,6 +19,6 @@ def test_process_urls_threaded():
     
 def result_values_valid(results: list) -> bool:
     for res in results:
-        if res <= 1000:
+        if res.result_value <= 1000:
             return False
     return True
