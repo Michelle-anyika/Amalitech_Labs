@@ -1,0 +1,12 @@
+{
+    "total_entries": 1500,
+    "total_bytes_transferred": 3872596,
+    "status_distribution": {
+        "200": 291,
+        "201": 303,
+        "403": 292,
+        "404": 319,
+        "500": 295
+    },
+    "error_count": 906
+}

@@ -6,11 +6,11 @@ def test_parse_valid_log_line():
     result = parse_log_line(line)
     
     assert result is not None
-    assert result['ip'] == '192.168.1.1'
-    assert result['timestamp'] == '10/Oct/2023:13:55:36 -0700'
-    assert result['method'] == 'GET'
-    assert result['url'] == '/index.html'
-    assert result['status'] == '200'
+    assert result.ip == '192.168.1.1'
+    assert result.timestamp == '10/Oct/2023:13:55:36 -0700'
+    assert result.method == 'GET'
+    assert result.url == '/index.html'
+    assert result.status == 200
     
 def test_parse_invalid_log_line():
     line = 'This is completely malformed noise without structures'

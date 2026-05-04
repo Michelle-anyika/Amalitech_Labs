@@ -1,5 +1,16 @@
 import re
-from typing import Dict, Optional
+from typing import Optional
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class LogEntry:
+    """Type-safe data model for Apache log entries."""
+    ip: str
+    timestamp: str
+    method: str
+    url: str
+    status: int
+    bytes: int
 
 # Match Apache format via extensive Named Groups
 LOG_PATTERN = re.compile(
@@ -9,11 +20,19 @@ LOG_PATTERN = re.compile(
     r'(?P<status>\d{3}) (?P<bytes>\d+)$'
 )
 
-def parse_log_line(line: str) -> Optional[Dict[str, str]]:
-    """Takes a raw log line, searches via compilation, returns mapped dict."""
+def parse_log_line(line: str) -> Optional[LogEntry]:
+    """Takes a raw log line, searches via compilation, returns LogEntry object."""
     match = LOG_PATTERN.match(line)
     if match:
-        return match.groupdict()
+        data = match.groupdict()
+        return LogEntry(
+            ip=data['ip'],
+            timestamp=data['timestamp'],
+            method=data['method'],
+            url=data['url'],
+            status=int(data['status']),
+            bytes=int(data['bytes'])
+        )
     return None
 
 def clean_log(line: str) -> str:

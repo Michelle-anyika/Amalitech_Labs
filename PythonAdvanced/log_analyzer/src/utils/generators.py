@@ -1,5 +1,6 @@
 import itertools
-from typing import Iterator, Dict, Iterable
+from typing import Iterator, List, Dict, Iterable
+from src.parser.regex_extractor import LogEntry
 
 def read_large_log(file_path: str) -> Iterator[str]:
     """Memory-safe iterable loading structure for vast log inputs."""
@@ -7,12 +8,12 @@ def read_large_log(file_path: str) -> Iterator[str]:
         for line in f:
             yield line
 
-def group_logs_by_status(dicts: Iterable[Dict[str, str]]) -> Dict[str, list]:
-    """Implements itertools.groupby clustering algorithms over parsed JSON arrays."""
+def group_logs_by_status(entries: Iterable[LogEntry]) -> Dict[int, List[LogEntry]]:
+    """Implements itertools.groupby clustering algorithms over LogEntry streams."""
     # Itertools demands pre-sorting structures otherwise matching sequence gaps fail
-    sorted_dicts = sorted(dicts, key=lambda d: d.get('status', '0'))
+    sorted_entries = sorted(entries, key=lambda e: e.status)
     
     grouped = {}
-    for key, group in itertools.groupby(sorted_dicts, key=lambda d: d.get('status', '0')):
+    for key, group in itertools.groupby(sorted_entries, key=lambda e: e.status):
         grouped[key] = list(group)
     return grouped

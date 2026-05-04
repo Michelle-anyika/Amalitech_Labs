@@ -35,6 +35,8 @@ def test_log_call_decorator(capsys):
     captured = capsys.readouterr()
     assert "Calling function 'say_hi' with args: ('Alice',)" in captured.out
 
+from src.parser.regex_extractor import LogEntry
+
 def test_read_large_log(tmp_path):
     log_file = tmp_path / "test.log"
     log_file.write_text("Line 1\nLine 2\nLine 3")
@@ -45,12 +47,12 @@ def test_read_large_log(tmp_path):
     assert next(gen).strip() == "Line 2"
 
 def test_groupby_status():
-    dicts = [
-        {'status': '200', 'bytes': '10'},
-        {'status': '200', 'bytes': '20'},
-        {'status': '404', 'bytes': '30'}
+    entries = [
+        LogEntry('1.1.1.1', 'now', 'GET', '/', 200, 10),
+        LogEntry('1.1.1.1', 'now', 'GET', '/', 200, 20),
+        LogEntry('1.1.1.1', 'now', 'GET', '/', 404, 30)
     ]
-    groups = group_logs_by_status(dicts)
-    assert '200' in groups
-    assert '404' in groups
-    assert len(groups['200']) == 2
+    groups = group_logs_by_status(entries)
+    assert 200 in groups
+    assert 404 in groups
+    assert len(groups[200]) == 2
